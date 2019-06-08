@@ -1,0 +1,52 @@
+<h1>Soil Server</h1>
+
+{{!-- home page --}}
+<div class="row" id="homePage">
+    {{#each navButton}}
+    <div class="col-md-4">
+        <img src="{{imageLink}}" alt=""><br>
+        <a href="{{navLink}}">{{navDestination}}</a>
+    </div>
+    {{/each}}
+</div>
+
+{{!-- Controls --}}
+<div class="row" id="controlsPage">
+    {{#each controlls}}
+    <div class="col-md-4">
+        <p>{{controlOption}}</p>
+    </div>
+    {{/each}}
+</div>
+
+{{!-- stats --}}
+<div class="row" id="statsPage">
+    <div class="col-md-6">
+        {{#each}}
+        <p>Humidity: {{humidity}}</p>
+        <p>Soil Moisture: {{soilMoisture}}</p>
+        <p>Temperature: {{temperature}}</p>
+        {{/each}}
+    </div>
+</div>
+
+
+{{!-- hardware design --}}
+<div class="row" id="hardwareDesign">
+    <div class="col-md-6">
+        <h3>Diagram</h3>
+    </div>
+    <div class="col-md-6">
+        <h3>Video Demonstration</h3>
+    </div>
+</div>
+
+{{!-- about us --}}
+<div class="row" id="aboutUs">
+    {{#each aboutUs}}
+    <div class="col-md-3">
+        <img src="{{aboutUsImage}}" alt="">
+        <p>{{aboutUsBio}}</p>
+    </div>
+    {{/each}}
+</div>
