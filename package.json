@@ -25,6 +25,11 @@
     "express-handlebars": "^3.1.0",
     "johnny-five": "^1.1.0",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-oauth": "^1.0.0",
     "sequelize": "^5.8.7",
     "tessel-io": "^1.2.2"
   },
@@ -36,7 +41,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.7"
+    "prettier": "^1.18.2"
   },
   "keywords": []
 }

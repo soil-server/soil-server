@@ -1,6 +1,8 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 var db = require("./models");
 
@@ -11,6 +13,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(passport.initialize());
 
 // Handlebars
 app.engine(
@@ -43,5 +46,7 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+
 
 module.exports = app;
