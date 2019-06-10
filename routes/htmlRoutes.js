@@ -22,8 +22,12 @@ module.exports = function(app) {
   });
 
   app.get("/portfolio", function(req, res) {
-    res.render(stats)
-  })
+    res.render('../views/controls')
+  });
+
+  app.get("/stats", function(req, res) {
+    res.render('../views/stats')
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
