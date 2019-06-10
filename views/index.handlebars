@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Soil Server</h1>
 
 {{!-- home page --}}
@@ -8,4 +9,22 @@
         <a href="{{navLink}}">{{navDestination}}</a>
     </div>
     {{/each}}
+</div>
+
+<form action="/login" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>
+
+<a href="/auth/google">Sign In with Google</a>
+
 </div>

@@ -1,10 +1,12 @@
 {{!-- stats --}}
-<div class="row" id="statsPage">
-    <div class="col-md-6">
-        {{#each}}
-        <p>Humidity: {{humidity}}</p>
-        <p>Soil Moisture: {{soilMoisture}}</p>
-        <p>Temperature: {{temperature}}</p>
-        {{/each}}
+<div class="container">
+    <div class="row" id="statsPage">
+        <div class="col-md-6">
+            {{#each}}
+            <p>Humidity: {{humidity}}</p>
+            <p>Soil Moisture: {{soilMoisture}}</p>
+            <p>Temperature: {{temperature}}</p>
+            {{/each}}
+        </div>
     </div>
 </div>
