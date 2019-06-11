@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/portfolio", function(req, res) {
+  app.get("/controls", function(req, res) {
     res.render('../views/controls')
   });
 

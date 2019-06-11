@@ -47,7 +47,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy({
     clientID: "282162927529-h0ics8823j4s7k538ajm226siiik9u5r.apps.googleusercontent.com",
     clientSecret: "GbdJ0azyAkPBMKvrmL-0XCMh",
-    callbackURL: "/portfolio"
+    callbackURL: "/controls"
   },
   function(accessToken, refreshToken, profile, done) {
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
