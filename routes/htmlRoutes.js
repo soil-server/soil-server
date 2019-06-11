@@ -25,6 +25,10 @@ module.exports = function(app) {
     res.render('../views/controls')
   });
 
+  app.get("/controls", function(req, res) {
+    res.render('../views/controls')
+  });
+
   app.get("/stats", function(req, res) {
     res.render('../views/stats')
   });
