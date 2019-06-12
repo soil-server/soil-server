@@ -1,5 +1,12 @@
 {{!-- Controls --}}
 <div class="container" id="controlsPage">
+    <div class="row">
+        <div class="col-md-12">
+            <body class="back-row-toggle">
+                <div class="rain front-row"></div>
+                <div class="rain back-row"></div>
+        </div>
+    </div>
     <div class="row" id="toggleControls">
         <div class="col-md-4 offset-md-4" style="text-align: center">
             <h3>Select a plant to control:</h3> <br>
@@ -9,6 +16,8 @@
                 <option value="2">Living room ficus</option>
             </select>
         </div>
+    </div>
+    <div class="row">
         <hr>
         <div class="col-md-4 offset-md-4" style="text-align: center">
 
@@ -20,6 +29,15 @@
                 </label>
                 ON</h3> <br>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <body class="back-row-toggle splat-toggle">
+                <div class="rain front-row"></div>
+                <div class="rain back-row"></div>
+        </div>
+    </div>
+    <div class="row">
         <hr>
         <div class="col-md-6 offset-md-3" style="text-align: center">
             <h3>Set up a timer to automatically water:</h3>
@@ -42,6 +60,7 @@
     </div>
     <hr>
 
+
     <div class="col-md-4 offset-md-4" style="text-align: center">
         <h3>Automatically water when low moisture levels are detected:</h3>
         <h3>OFF
@@ -56,7 +75,7 @@
     <div class="col-md-4 offset-md-4" style="text-align: center">
         <h3>Save your settings:</h3>
         <button type="button" id="saveButton" class="btn btn-success">Save</button>
-    </div>
+    </div> <br><br>
     {{!-- {{#each controlls}}
         <div class="col-md-4">
             <p>{{controlOption}}</p>
@@ -65,3 +84,7 @@
 
 </div>
 </div>
+<div class="div-wrapper">
+		<img id="logo" style="width: 300px" src="./images/project 2 logo name no line.png"
+			alt="logo">
+	</div>
