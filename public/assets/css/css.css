@@ -99,6 +99,7 @@ hr {
   width: 96%;               
   background-color: gray;
   height: 1px;
+  opacity: .1;
 }
 #googleIcon {
   font-size: 20px
