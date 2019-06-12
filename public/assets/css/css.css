@@ -98,7 +98,13 @@ hr {
 #googleIcon {
   font-size: 20px
 }
+
 .footer {
   background-color: saddlebrown;
   color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
