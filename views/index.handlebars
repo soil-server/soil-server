@@ -1,53 +1,119 @@
 <div class="container">
-<h1 style="text-align: center">Soil Server</h1>
+    <h1 style="text-align: center">Soil Server</h1>
 
-{{!-- home page --}}
-<div class="row" id="homePage">
-    {{#each navButton}}
-    <div class="col-md-4">
-        <img src="{{imageLink}}" alt=""><br>
-        <a href="{{navLink}}">{{navDestination}}</a>
-    </div>
-    {{/each}}
-</div>
-
-{{!-- <form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form> --}}
-
-{{!-- hardware design --}}
-<div class="container">
-    <div class="row" id="hardwareDesign">
-        <div class="col-md-6">
-            <h3>Diagram</h3>
-        </div>
-        <div class="col-md-6">
-            <h3>Video Demonstration</h3>
-        </div>
-    </div>
-</div>
-
-
-{{!-- about us --}}
-<div class="container">
-    <div class="row" id="aboutUs">
-        {{#each aboutUs}}
-        <div class="col-md-3">
-            <img src="{{aboutUsImage}}" alt="">
-            <p>{{aboutUsBio}}</p>
+    {{!-- home page --}}
+    <div class="row" id="homePage">
+        {{#each navButton}}
+        <div class="col-md-4">
+            <img src="{{imageLink}}" alt=""><br>
+            <a href="{{navLink}}">{{navDestination}}</a>
         </div>
         {{/each}}
     </div>
-</div>
+
+
+
+    {{!-- hardware design --}}
+    <div class="container">
+        {{!-- rain start --}}
+        <div class="row">
+            <div class="col-md-12">
+                <body class="back-row-toggle">
+                    <div class="rain front-row"></div>
+                    <div class="rain back-row"></div>
+            </div>
+        </div>
+        {{!-- rain end --}}
+        <div class="row" id="hardwareDesign">
+            <div class="col-md-6">
+                <h3>Diagram</h3>
+                <img style="max-width: 500px" src="./images/soilMoistureDiagram.png" alt="diagram"> <br>
+                <h3>List of parts used:</h3>
+                <ul>
+                    <li>Tessel 2 development board</li>
+                    <li>Soil moisture sensor</li>
+                    <li>Breadboard</li>
+                    <li>Jumper Wires, LEDS, Resistors</li>
+                    <li>Solid state relay</li>
+                    <li>Water Pump</li>
+                    <li>Atmospheric Sensor</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Video Demonstration</h3>
+                <p>Video will go here once available</p>
+            </div>
+        </div>
+        {{!-- rain start --}}
+        <div class="row">
+            <div class="col-md-12">
+
+                <body class="back-row-toggle splat-toggle">
+                    <div class="rain front-row"></div>
+                    <div class="rain back-row"></div>
+            </div>
+        </div>
+        {{!-- rain end --}}
+    </div>
+    <hr>
+
+    {{!-- about us --}}
+    <div id="aboutUs" class="container">
+
+        <div class="col-md-12">
+            <h2 style="text-align: center">About us</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="./images/melissaDay.jpg" class="about-image" width="140px" height="140px" alt="Melissa">
+                    <h2 class="about-name">Melissa Day</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus dolor saepe aperiam nisi.
+                        Possimus, facere sapiente quo, mollitia at nobis expedita unde molestiae dolorem vitae
+                        necessitatibus aperiam nesciunt veritatis alias!</p>
+                    <p class="about-links"><a class="btn btn-success"
+                            href="https://www.linkedin.com/in/melissa-day-646a05170/" target="_blank" role="button"><i
+                                class="fab fa-linkedin-in"></i></a><a class="btn btn-success"
+                            href="https://github.com/Mday1313" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="./images/Diana.jpg" class="about-image" width="140px" height="140px" alt="Diana">
+                    <h2 class="about-name">Diana Murillo</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, magni sed animi tenetur, error
+                        iusto minus consequatur eaque placeat, doloremque culpa perferendis velit quod magnam in
+                        consequuntur cum dolores! Dicta.</p>
+                    <p class="about-links"><a class="btn btn-success"
+                            href="https://www.linkedin.com/in/diana-murillo-21092b17a/" target="_blank" role="button"><i
+                                class="fab fa-linkedin-in"></i></a><a class="btn btn-success"
+                            href="https://github.com/OokamiSieren" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="./images/John Sickels.jpg" class="about-image" width="140px" height="140px" alt="John">
+                    <h2 class="about-name">John Sickels</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut voluptate in maiores dolor
+                        sapiente, ullam nisi, quae reprehenderit non laborum dolorum, voluptatem eos dicta omnis rerum
+                        pariatur cupiditate eveniet voluptatibus?</p>
+                    <p class="about-links"><a class="btn btn-success" href="https://www.linkedin.com/in/johnwsickels/"
+                            target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a
+                            class="btn btn-success" href="https://github.com/johnsickels" target="_blank"
+                            role="button"><i class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3">
+                    <img src="./images/anthonyPhoto (1).jpg" class="about-image" width="140px" height="140px"
+                        alt="Anthony">
+                    <h2 class="about-name">Anthony Shannon</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi laudantium culpa velit repellendus
+                        ipsum, dicta laborum sit ducimus ut eum ad architecto impedit numquam, rerum illo non quae amet
+                        quam?</p>
+                    <p class="about-links"><a class="btn btn-success"
+                            href="https://www.linkedin.com/in/anthony-shannon-b1a0b1aa/" target="_blank"
+                            role="button"><i class="fab fa-linkedin-in"></i></a><a class="btn btn-success"
+                            href="https://github.com/ashannon1990" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+
+        </div>
+    </div>
 
 </div>
