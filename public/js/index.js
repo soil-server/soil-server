@@ -16,32 +16,6 @@ var plantDetails = function (plant) {
 
 plantDetails("watermelon");
 
-<<<<<<< HEAD
-=======
-        series: [{
-            name: 'Bell curve asd',
-            type: 'bellcurve',
-            xAxis: 1,
-            yAxis: 1,
-            pointsInInterval: pointsInInterval,
-            intervals: 4,
-            baseSeries: 1,
-            zIndex: -1,
-            marker: {
-                enabled: true
-            }
-        }, {
-            name: 'Data',
-            type: 'scatter',
-            data: publicData,
-            visible: true,
-            marker: {
-                radius: 1.5
-            }
-        }]
-    });
-};
-
 // rain
 
 var makeItRain = function() {
@@ -88,6 +62,3 @@ var makeItRain = function() {
   });
   
   makeItRain();
-
-  
->>>>>>> 17771992243aceb30543116ff689ba40cc0b6f01
