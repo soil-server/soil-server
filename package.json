@@ -26,6 +26,7 @@
     "http": "0.0.0",
     "johnny-five": "^1.1.0",
     "mysql2": "^1.6.5",
+    "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth2": "^0.2.0",
