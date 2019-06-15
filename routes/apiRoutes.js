@@ -28,7 +28,7 @@ module.exports = function (app) {
   //   redirecting the user to google.com.  After authorization, Google
   //   will redirect the user back to this application at /auth/google/callback
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read'] }));
 
   // GET /auth/google/callback
   //   Use passport.authenticate() as route middleware to authenticate the
@@ -40,5 +40,17 @@ module.exports = function (app) {
     function (req, res) {
       res.redirect('/');
     });
-};
-
+    app.get('/logout', function(req, res){
+      req.logout();
+      res.redirect('/');
+    });
+    
+    // local auth
+    app.post('/login', 
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
+     app.get("/logout")
+    
+  };

@@ -39,20 +39,50 @@ module.exports = db;
 
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var LocalStrategy = require("passport-local");
+var models = require("../models")
+
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Google
 //   profile), and invoke a callback with a user object.
 passport.use(new GoogleStrategy({
-    clientID: "282162927529-h0ics8823j4s7k538ajm226siiik9u5r.apps.googleusercontent.com",
-    clientSecret: "GbdJ0azyAkPBMKvrmL-0XCMh",
-    callbackURL: "/controls"
-  },
-  function(accessToken, refreshToken, profile, done) {
-       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-         return done(err, user);
-       });
-  }
+  clientID: "282162927529-h0ics8823j4s7k538ajm226siiik9u5r.apps.googleusercontent.com",
+  clientSecret: "GbdJ0azyAkPBMKvrmL-0XCMh",
+  callbackURL: "http://localhost:3000/auth/google/callback"
+},
+  function (request, accessToken, refreshToken, profile, done) {
+    // console.log(profile);
+    console.log("Token: " + accessToken)
+    console.log("Refresh Token: ")
+    console.info(refreshToken)
+    db.User.findOrCreate({ 
+      where: {
+        google_id: profile.id, 
+        user_photo: profile.photos[0].value,
+        google_name: profile.displayName,
+        given_name: profile.name.givenName
+      }
+    }).then(([user, created]) => {
+      // console.log(user.get({
+      //   plain: true
+      // }))
+      // console.log(created)
+  })}
 ));
 
+passport.use(new LocalStrategy(
+  function (username, password, done) {
+    db.User.findOnez({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
