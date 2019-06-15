@@ -102,7 +102,15 @@ exports.atmosRead = atmosRead;
     console.log(res);
   });
  });
- 
+
+ http.get({
+  hostname: 'https://soil-server-main.herokuapp.com',
+  path: '/api/t2',
+  agent: false  // Create a new agent just for this one request
+}, (res) => {
+  console.log(res);
+});
+
  // Stays the same
  server.listen(PORT);
 

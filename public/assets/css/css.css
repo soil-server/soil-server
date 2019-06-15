@@ -99,7 +99,7 @@ hr {
   width: 96%;               
   background-color: gray;
   height: 1px;
-  opacity: .1;
+  opacity: 0;
 }
 #googleIcon {
   font-size: 20px
@@ -108,8 +108,10 @@ hr {
 .footer {
   background-color: saddlebrown;
   color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
- 
   text-align: center;
 }
 #signInButton {
@@ -221,8 +223,10 @@ body.splat-toggle .splat {
  }
 
  #logo {
-  position: absolute;
   z-index: 2;
-  left: 75%;
-  bottom: -390px;
+  right: 0px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
  }
+

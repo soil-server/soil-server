@@ -1,15 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        username: DataTypes.STRING,
-        password: DataTypes.STRING
+        google_id: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
+        user_photo: DataTypes.STRING,
+        google_name: DataTypes.STRING,
+        given_name: DataTypes.STRING
     });
-    
-    User.associate = function(models) {
-        User.hasMany(models.Care),
-        User.hasMany(models.Plant)
-    };
-    // User.associate = function(models) {
-    //     User.hasMany(models.Plant)
-    // };
     return User;
 }
