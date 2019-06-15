@@ -22,8 +22,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/controls", isLoggedIn, function(req, res) {
-    res.render('../views/controls')
+  app.get("/controls", function(req, res) {
+    res.render('controls')
   });
 
   app.get("/stats", function(req, res) {
