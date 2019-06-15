@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.get('/api/t2', function(req, res){
     
     res.json({
-      req: req
+      req: req.get('origin')
     })
   })
   // GET /auth/google
