@@ -101,7 +101,7 @@ exports.atmosRead = atmosRead;
   path: '/api/t2',
   agent: false  // Create a new agent just for this one request
 }, (res) => {
-  console.log(res);
+  // console.log(res);
 });
 
  // Stays the same
@@ -116,7 +116,7 @@ exports.atmosRead = atmosRead;
    response.writeHead(200, {"Content-Type": "text/html"});
 
    // Use fs to read in index.html
-   fs.readFile(__dirname + '/index.html', function (err, content) {
+   fs.readFile("../views/controls.handlebars", function (err, content) {
      // If there was an error, throw to stop code execution
      if (err) {
        throw err;
