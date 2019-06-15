@@ -24,12 +24,13 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/api/t2', function(req, res){
-    
-    res.json({
-      req: req
-    })
+  app.get('/api/t2', function (req, res) {
+
+
+    var fullUrl = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    res.json({ url: fullUrl });
   })
+
   // GET /auth/google
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request.  The first step in Google authentication will involve
@@ -49,18 +50,18 @@ module.exports = function (app) {
         failureRedirect: '/stats'
 }));
 
-    
-    app.get('/logout', function(req, res){
-      req.logout();
-      res.redirect('/');
-    });
-    
-    // local auth
-    app.post('/login', 
+
+  app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+  // local auth
+  app.post('/login',
     passport.authenticate('local', { failureRedirect: '/login' }),
-    function(req, res) {
+    function (req, res) {
       res.redirect('/');
     });
-     app.get("/logout")
-    
-  };
+  app.get("/logout")
+
+};
