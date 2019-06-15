@@ -3,6 +3,9 @@ body {
   color: white;
   background: linear-gradient(to bottom, #202020, #111119);
 }
+.noGradient {
+  background-color: black;
+}
 .switch {
   position: relative;
   display: inline-block;
