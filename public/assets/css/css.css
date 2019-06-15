@@ -106,7 +106,7 @@ hr {
 }
 
 .footer {
-  background-color: saddlebrown;
+  background-color: #3d2817;
   color: white;
   position: fixed;
   left: 0;
@@ -230,3 +230,15 @@ body.splat-toggle .splat {
   width: 100%;
  }
 
+ /* d3 graph css */
+ div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: .2rem;
+  background: #313639;
+  color: #f9f9f9;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  font-size: .7rem;
+}
