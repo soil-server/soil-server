@@ -106,7 +106,7 @@ hr {
 }
 
 .footer {
-  background-color: saddlebrown;
+  background-color: #3d2817;
   color: white;
   position: fixed;
   left: 0;
@@ -132,7 +132,7 @@ hr {
 .rain.back-row {
   display: none;
   z-index: 1;
-  bottom: 60px;
+  bottom: 0px;
   opacity: 0.5;
 }
 

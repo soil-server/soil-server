@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("passport")
+var profile = require("../models/index")
 
 module.exports = function (app) {
   // Get all examples
@@ -36,18 +37,18 @@ module.exports = function (app) {
   //   redirecting the user to google.com.  After authorization, Google
   //   will redirect the user back to this application at /auth/google/callback
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read'] }));
+    passport.authenticate('google', { scope: ["profile"] }));
 
   // GET /auth/google/callback
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request.  If authentication fails, the user will be redirected back to the
   //   login page.  Otherwise, the primary route function function will be called,
   //   which, in this example, will redirect the user to the home page.
-  app.get('/auth/google/callback',
-    passport.authenticate('google', { successRedirect: '/', failureRedirect: '/stats' }),
-    function (req, res) {
-      res.redirect('/');
-    });
+  app.get( '/auth/google/callback', 
+    passport.authenticate( 'google', { 
+        successRedirect: '/',
+        failureRedirect: '/stats'
+}));
 
 
   app.get('/logout', function (req, res) {

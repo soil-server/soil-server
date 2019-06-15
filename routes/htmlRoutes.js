@@ -23,7 +23,7 @@ module.exports = function(app) {
   });
 
   app.get("/controls", function(req, res) {
-    res.render('controls')
+    res.render('../views/controls')
   });
 
   app.get("/stats", function(req, res) {
