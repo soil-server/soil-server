@@ -38,7 +38,7 @@ module.exports = db;
 
 
 var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var LocalStrategy = require("passport-local");
 var models = require("../models")
 
@@ -50,19 +50,24 @@ var models = require("../models")
 passport.use(new GoogleStrategy({
   clientID: "282162927529-h0ics8823j4s7k538ajm226siiik9u5r.apps.googleusercontent.com",
   clientSecret: "GbdJ0azyAkPBMKvrmL-0XCMh",
-  callbackURL: "http://localhost:3000/auth/google/callback"
+  callbackURL: "http://localhost:3000/auth/google/callback",
+  // passReqToCallback   : true
 },
-  function (request, accessToken, refreshToken, profile, done) {
+function(request, accessToken, refreshToken, profile, done) {
     // console.log(profile);
     console.log("Token: " + accessToken)
     console.log("Refresh Token: ")
     console.info(refreshToken)
     db.User.findOrCreate({ 
       where: {
-        google_id: profile.id, 
+        google_id: profile.id,
+      },
+      defaults: {
         user_photo: profile.photos[0].value,
         google_name: profile.displayName,
         given_name: profile.name.givenName
+      }, function (err, user) {
+        return done(err, user);
       }
     }).then(([user, created]) => {
       // console.log(user.get({

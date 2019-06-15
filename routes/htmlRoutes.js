@@ -30,6 +30,9 @@ module.exports = function(app) {
     res.render('../views/stats')
   });
 
+  app.get("/care", function(req, res) {
+    res.render('../views/care')
+  });
   // Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {
   //   res.render("404");
