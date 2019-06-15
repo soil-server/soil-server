@@ -44,11 +44,11 @@ $(document).ready(function () {
     $(document).on("click", "#add-care", function (event) {
       console.log($(this)[0].innerHTML);
       event.preventDefault();
-      
-      
+
+
       var newCare = $("#care-input").val().trim() || $(this)[0].innerHTML;
       console.log(newCare);
-      
+
       if ($(newCare).val() === "") {
         return false;
       }
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     var care = {
       care: $(this)[0].name,
-      user: "John"
+      google_id: "100030891790192819001"
     };
     console.log(care);
 
@@ -88,7 +88,7 @@ $(document).ready(function () {
       data.forEach(function (element) {
         console.log(element.id);
         savedCare.append("<li><button type='button' id='add-care'>" + element.care + "</button><img src='../images/x.png' width='20' class='delete' id=" + element.id + "></li>")
-        
+
 
       })
       $("#saved-care-names").prepend(savedCare);
@@ -105,13 +105,13 @@ $(document).ready(function () {
       type: "DELETE",
       success: function (result) {
         console.log(result);
-        
+
       }
     }).then(
       function () {
         console.log("care deleted");
         location.reload();
-        
+
       }
     );
   });
@@ -122,6 +122,26 @@ $(document).ready(function () {
   $.post("/api/readings").then(
     function () {
       console.log("added reading");
+      location.reload();
+
+    }
+  );
+
+  $.post("/api/plants").then(
+    function () {
+      console.log("added plant");
+      location.reload();
+
+    }
+  );
+  
+  var user = {
+    google_id: "1234567890"
+  };
+  
+  $.post("/api/users", user).then(
+    function () {
+      console.log("added user");
       location.reload();
 
     }
@@ -175,6 +195,19 @@ $(document).ready(function () {
 
   makeItRain();
 
+
+  $("#createAccountButton").on("click", function () {
+    let newUserName = $("#newUserName").val().trim();
+    let newPassword1 = $("#newPassword1").val().trim();
+    let newPassword2 = $("#newPassword2").val().trim();
+    if (newPassword1 === newPassword2) {
+      console.log("Password accepted");
+      // if username doesn't exist, create user in database
+      // sign user in
+      // if username does exist, alert it's already in use
+    } else {
+      alert("Passwords don't match");
+    }
+  })
+  module.exports(newUserName, newPassword1);
 });
-
-

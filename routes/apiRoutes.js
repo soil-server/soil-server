@@ -2,9 +2,32 @@ var db = require("../models");
 var passport = require("passport")
 
 module.exports = function (app) {
-  // Get all examples
+
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.post("/api/users", function (req, res) {
+
+    console.log(req.body);
+
+    db.User.create({
+      google_id: req.body.google_id
+    }).then(function (dbUser) {
+      console.log("Success");
+      res.json(dbUser);
+    }).catch(function(err) {
+      console.log(err, req.body.google_id);
+      
+    })
+  });
+
   app.get("/api/cares", function (req, res) {
-    db.Care.findAll({}).then(function (dbCares) {
+    db.Care.findAll({
+      include: [db.User]
+    }).then(function (dbCares) {
       res.json(dbCares);
     });
   });
@@ -17,7 +40,7 @@ module.exports = function (app) {
     db.Care.create({
       care: req.body.care,
       User: {
-        user: req.body.user
+        google_id: req.body.google_id
       }
     }, {
         include: [db.User]
@@ -33,13 +56,39 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/readings", function (req, res) {
-    db.Reading.findAll({}).then(function (dbReadings) {
-      res.json(dbReadings);
+  app.get("/api/plants", function (req, res) {
+    db.Plant.findAll({
+      include: [db.User]
+    }).then(function (dbPlants) {
+      res.json(dbPlants);
     });
   });
 
   // Create a new example
+  app.post("/api/plants", function (req, res) {
+
+    console.log(req.body);
+
+    db.Plant.create({
+      plant_name: req.body.plant_name,
+      User: {
+        google_id: req.body.google_id
+      }
+    }, {
+        include: [db.User]
+      }).then(function (dbPlant) {
+        res.json(dbPlant);
+      })
+  });
+
+  app.get("/api/readings", function (req, res) {
+    db.Reading.findAll({
+      include: [db.Plant]
+    }).then(function (dbReadings) {
+      res.json(dbReadings);
+    });
+  });
+
   app.post("/api/readings", function (req, res) {
 
     console.log(req.body);
@@ -53,14 +102,11 @@ module.exports = function (app) {
       }
     }, {
         include: [db.Plant]
-      }, {
-        include: [db.User]
       }).then(function (dbPlant) {
         res.json(dbPlant);
       })
   });
 
-  
   // GET /auth/google
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request.  The first step in Google authentication will involve
@@ -79,5 +125,6 @@ module.exports = function (app) {
     function (req, res) {
       res.redirect('/');
     });
+
 };
 

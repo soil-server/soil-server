@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("passport")
+var isLoggedIn = require("../lib/helpers.js")
 
 module.exports = function(app) {
   // Load index page
@@ -21,11 +22,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/controls", function(req, res) {
-    res.render('../views/controls')
-  });
-
-  app.get("/controls", function(req, res) {
+  app.get("/controls", isLoggedIn, function(req, res) {
     res.render('../views/controls')
   });
 
@@ -33,10 +30,15 @@ module.exports = function(app) {
     res.render('../views/stats')
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+  app.get("/care", function(req, res) {
+    res.render('../views/care')
   });
+  // Render 404 page for any unmatched routes
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
+
+  
 
 
 
