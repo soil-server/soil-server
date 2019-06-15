@@ -38,10 +38,17 @@ module.exports = db;
 
 
 var passport = require('passport');
-var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var LocalStrategy = require("passport-local");
+
 var models = require("../models")
 
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
@@ -53,12 +60,12 @@ passport.use(new GoogleStrategy({
   callbackURL: "http://localhost:3000/auth/google/callback",
   // passReqToCallback   : true
 },
-function(request, accessToken, refreshToken, profile, done) {
-    // console.log(profile);
+  function (accessToken, refreshToken, profile, done) {
+    console.log(profile);
     console.log("Token: " + accessToken)
     console.log("Refresh Token: ")
     console.info(refreshToken)
-    db.User.findOrCreate({ 
+    db.User.findOrCreate({
       where: {
         google_id: profile.id,
       },
@@ -66,16 +73,18 @@ function(request, accessToken, refreshToken, profile, done) {
         user_photo: profile.photos[0].value,
         google_name: profile.displayName,
         given_name: profile.name.givenName
-      }, function (err, user) {
+      }, function(err, user) {
         return done(err, user);
       }
-    }).then(([user, created]) => {
+    // }).then(([user, created]) => {
       // console.log(user.get({
       //   plain: true
       // }))
       // console.log(created)
-  })}
+    })
+  }
 ));
+
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
