@@ -90,7 +90,7 @@ data.forEach(function(d) {
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
 var chart1 = d3
-  .select("body")
+  .select("#graph1")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -119,7 +119,7 @@ chart1
   .attr("d", valueline1)
   .attr("stroke", "#4682b4")
   .attr("stroke-width", 2)
-  .attr("fill", "#111119");
+  .attr("fill", "none");
 
 //add data points
 var path = chart1
@@ -147,7 +147,7 @@ var path = chart1
       .duration(100)
       .style("opacity", 1);
     div
-      .html("The moisture was " + (d.moisture) + " at " + (d.time))
+      .html("The moisture was " + (d.moisture))
       .style("left", d3.event.pageX + 10 + "px")
       .style("top", d3.event.pageY - 15 + "px");
   })
@@ -193,7 +193,7 @@ chart1
 
 // temperature graph
   var chart2 = d3
-  .select("body")
+  .select("#graph2")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -226,8 +226,8 @@ chart2
   .attr("class", "line")
   .attr("d", valueline2)
   .attr("stroke", "#FF0000")
-  .attr("stroke-width", 2);
-  // .attr("fill", "#FFFFFF");
+  .attr("stroke-width", 2)
+  .attr("fill", "none");
 
   //add data points
 var path = chart2
@@ -255,7 +255,7 @@ var path = chart2
     .duration(100)
     .style("opacity", 1);
   div
-    .html("The temperature was " + [d.temperature] + "°F at " + [d.time])
+    .html("The temperature was " + [d.temperature] + "°F")
     .style("left", d3.event.pageX + 10 + "px")
     .style("top", d3.event.pageY - 15 + "px");
 })
@@ -301,7 +301,7 @@ chart2
   
   //humidity graph
   var chart3 = d3
-  .select("body")
+  .select("#graph3")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -334,8 +334,8 @@ chart3
   .attr("class", "line")
   .attr("d", valueline3)
   .attr("stroke", "#32CD32")
-  .attr("stroke-width", 2);
-  // .attr("fill", "#FFFFFF");
+  .attr("stroke-width", 2)
+  .attr("fill", "none");
 
   //add data points
 var path = chart3
@@ -363,7 +363,7 @@ var path = chart3
     .duration(100)
     .style("opacity", 1);
   div
-    .html("The relative humidity was " + [d.humidity] + "% at " + [d.time])
+    .html("The relative humidity was " + [d.humidity] + "%")
     .style("left", d3.event.pageX + 10 + "px")
     .style("top", d3.event.pageY - 15 + "px");
 })
