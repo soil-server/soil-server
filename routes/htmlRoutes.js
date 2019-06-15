@@ -23,11 +23,7 @@ module.exports = function(app) {
   });
 
   app.get("/controls", function(req, res) {
-<<<<<<< HEAD
     res.render('../views/controls')
-=======
-    res.render('controls')
->>>>>>> 88678fdf509596f3591d4b152b40ac634da96a28
   });
 
   app.get("/stats", function(req, res) {

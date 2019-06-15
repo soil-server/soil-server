@@ -3,9 +3,6 @@ body {
   color: white;
   background: linear-gradient(to bottom, #202020, #111119);
 }
-.noGradient {
-  background-color: black;
-}
 .switch {
   position: relative;
   display: inline-block;
@@ -135,7 +132,7 @@ hr {
 .rain.back-row {
   display: none;
   z-index: 1;
-  bottom: 60px;
+  bottom: 0px;
   opacity: 0.5;
 }
 
