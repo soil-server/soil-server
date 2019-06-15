@@ -1,5 +1,4 @@
 var db = require("../models");
-var passport = require("passport")
 var isLoggedIn = require("../lib/helpers.js")
 
 module.exports = function(app) {
@@ -13,6 +12,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/restricted", isLoggedIn, function(req, res) {
+    res.render("restricted");
+  })
+
   // Load Plant page and pass in an Plant by id
   app.get("/plant/:id", function(req, res) {
     db.Plant.findOne({ where: { id: req.params.id } }).then(function(dbPlant) {
@@ -22,8 +25,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/controls", isLoggedIn, function(req, res) {
-    res.render('../views/controls')
+  app.get("/controls", function(req, res) {
+    res.render('controls')
   });
 
   app.get("/stats", function(req, res) {

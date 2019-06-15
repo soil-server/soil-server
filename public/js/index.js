@@ -119,33 +119,33 @@ $(document).ready(function () {
   getSavedCares();
   displayCare(plantDetails);
 
-  $.post("/api/readings").then(
-    function () {
-      console.log("added reading");
-      location.reload();
+  // $.post("/api/readings").then(
+  //   function () {
+  //     console.log("added reading");
+  //     location.reload();
 
-    }
-  );
+  //   }
+  // );
 
-  $.post("/api/plants").then(
-    function () {
-      console.log("added plant");
-      location.reload();
+  // $.post("/api/plants").then(
+  //   function () {
+  //     console.log("added plant");
+  //     location.reload();
 
-    }
-  );
+  //   }
+  // );
   
-  var user = {
-    google_id: "1234567890"
-  };
-  
-  $.post("/api/users", user).then(
-    function () {
-      console.log("added user");
-      location.reload();
+  // var user = {
+  //   google_id: "1234567890"
+  // };
 
-    }
-  );
+  // $.post("/api/users", user).then(
+  //   function () {
+  //     console.log("added user");
+  //     location.reload();
+
+  //   }
+  // );
 
 
   // rain
