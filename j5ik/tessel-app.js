@@ -96,8 +96,7 @@ exports.atmosRead = atmosRead;
  
  });
  http.get({
-  hostname: 'localhost',
-  port: 3000,
+  hostname: 'https://soil-server-main.herokuapp.com',
   path: '/api/t2',
   agent: false  // Create a new agent just for this one request
 }, (res) => {
