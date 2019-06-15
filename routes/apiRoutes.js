@@ -22,13 +22,20 @@ module.exports = function (app) {
       res.json(dbPlant);
     });
   });
+
+  app.get('/api/t2', function(req, res){
+    
+    res.json({
+      req: req
+    })
+  })
   // GET /auth/google
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request.  The first step in Google authentication will involve
   //   redirecting the user to google.com.  After authorization, Google
   //   will redirect the user back to this application at /auth/google/callback
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read'] }));
 
   // GET /auth/google/callback
   //   Use passport.authenticate() as route middleware to authenticate the
@@ -36,9 +43,23 @@ module.exports = function (app) {
   //   login page.  Otherwise, the primary route function function will be called,
   //   which, in this example, will redirect the user to the home page.
   app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login' }),
+    passport.authenticate('google', { successRedirect: '/', failureRedirect: '/stats' }),
     function (req, res) {
       res.redirect('/');
     });
-};
 
+    
+    app.get('/logout', function(req, res){
+      req.logout();
+      res.redirect('/');
+    });
+    
+    // local auth
+    app.post('/login', 
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
+     app.get("/logout")
+    
+  };
