@@ -22,6 +22,13 @@ module.exports = function (app) {
       res.json(dbPlant);
     });
   });
+
+  app.get('/api/t2', function(req, res){
+    
+    res.json({
+      req: req
+    })
+  })
   // GET /auth/google
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request.  The first step in Google authentication will involve
