@@ -22,11 +22,11 @@ module.exports = function(app) {
   });
 
   app.get("/controls", function(req, res) {
-    res.render('../views/controls')
+    res.render('controls')
   });
 
   app.get("/controls", function(req, res) {
-    res.render('../views/controls')
+    res.render('controls')
   });
 
   app.get("/stats", function(req, res) {
