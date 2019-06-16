@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         user_photo: DataTypes.STRING,
         google_name: DataTypes.STRING,
-        given_name: DataTypes.STRING
+        first_name: DataTypes.STRING
     });
     return User;
 }
