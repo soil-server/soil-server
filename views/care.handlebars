@@ -1,14 +1,24 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+
             <body class="back-row-toggle splat-toggle">
                 <div class="rain front-row"></div>
                 <div class="rain back-row"></div>
         </div>
     </div>
-    <div class="row" id="statsPage">
-        <div class="col-md-6">
-            <p>Care</p>
+    <div class="row" id="carePage">
+        <div class="col-md-8">
+            <form id="care-form">
+                <label for="care-input">Search for Care Instructions</label>
+                <input type="text" id="care-input">
+                <input id="add-care" class="btn btn-primary" type="submit" value="Submit">
+            </form>
+            <div id="cares"></div>
         </div>
-    </div> <br><br><br>
+        <div class="col-md-4">
+            <h3>Your Saved Care Instructions</h3>
+            <div id ="saved-care-names"></div>
+        </div>
+    </div>
 </div>

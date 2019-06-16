@@ -1,12 +1,10 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        google_id: {
-            type: DataTypes.STRING,
-            primaryKey: true
-        },
-        user_photo: DataTypes.STRING,
-        google_name: DataTypes.STRING,
-        given_name: DataTypes.STRING
+      name: DataTypes.STRING,
+      googleId: DataTypes.STRING,
+      email: DataTypes.STRING,
+      role: DataTypes.STRING,
+      phone: DataTypes.STRING
     });
     return User;
-}
+  };
