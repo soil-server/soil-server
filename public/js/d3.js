@@ -53,7 +53,7 @@ data = [
 ];
 
 // set the dimensions and margins of the graph
-var margin = { top: 20, right: 50, bottom: 50, left: 70 },
+var margin = { top: 20, right: 50, bottom: 100, left: 70 },
   width = 1000 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
@@ -175,6 +175,7 @@ chart1
     "transform",
     "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
   )
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Date");
 
@@ -188,6 +189,7 @@ chart1
   .attr("y", 0 - margin.left)
   .attr("x", 0 - height / 2)
   .attr("dy", "1em")
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Moisture");
 
@@ -283,6 +285,7 @@ chart2
     "transform",
     "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
   )
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Date");
 
@@ -296,6 +299,7 @@ chart2
   .attr("y", 0 - margin.left)
   .attr("x", 0 - height / 2)
   .attr("dy", "1em")
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Temperature °F");
   
@@ -392,6 +396,7 @@ chart3
     "transform",
     "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
   )
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Date");
 
@@ -405,6 +410,7 @@ chart3
   .attr("y", 0 - margin.left)
   .attr("x", 0 - height / 2)
   .attr("dy", "1em")
+  .attr("fill", "#FFFFFF")
   .style("text-anchor", "middle")
   .text("Relative Humidity %");
 
