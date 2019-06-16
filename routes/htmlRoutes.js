@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("passport")
 var isLoggedIn = require("../lib/helpers.js")
 
 module.exports = function(app) {
@@ -11,10 +12,6 @@ module.exports = function(app) {
       });
     });
   });
-
-  app.get("/restricted", isLoggedIn, function(req, res) {
-    res.render("restricted");
-  })
 
   // Load Plant page and pass in an Plant by id
   app.get("/plant/:id", function(req, res) {
