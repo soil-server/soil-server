@@ -9,11 +9,58 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+// Authentication
+var passport = require("passport");
+var GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: "282162927529-h0ics8823j4s7k538ajm226siiik9u5r.apps.googleusercontent.com",
+      clientSecret: "GbdJ0azyAkPBMKvrmL-0XCMh",
+      callbackURL: "/auth/google/callback"
+    },
+    (accessToken, refreshToken, accessInfo, profile, cb) => {
+      console.log(profile)
+      db.User.findOrCreate({
+        where: { google_id: profile.id },
+        defaults: {
+          google_id: profile.id,
+          user_photo: profile.photos[0].value,
+          google_name: profile.displayName,
+          first_name: profile.name.givenName
+        }
+      }).then(([user, created]) => {
+        console.log(created);
+        cb(false, user);
+      });
+    }
+  )
+);
+
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(
+  require("express-session")({
+    secret: "control the things",
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use(passport.initialize());
+
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // Handlebars
 app.engine(
@@ -23,6 +70,11 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+app.get(
+  "/login",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
 // Routes
 require("./routes/apiRoutes")(app);

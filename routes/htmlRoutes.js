@@ -22,7 +22,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/controls", function(req, res) {
+  app.get("/controls", isLoggedIn, function(req, res) {
     res.render('../views/controls')
   });
 

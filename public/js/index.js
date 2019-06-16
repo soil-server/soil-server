@@ -64,17 +64,12 @@ $('.single-toggle.toggle').on('click', function () {
 makeItRain();
 
 
-$("#createAccountButton").on("click", function () {
-    let newUserName = $("#newUserName").val().trim();
-    let newPassword1 = $("#newPassword1").val().trim();
-    let newPassword2 = $("#newPassword2").val().trim();
-    if (newPassword1 === newPassword2) {
-        console.log("Password accepted");
-        // if username doesn't exist, create user in database
-            // sign user in
-        // if username does exist, alert it's already in use
-    } else {
-        alert("Passwords don't match");
-    }
-})
-module.exports(newUserName, newPassword1);
+// sign in button
+var isLoggedIn = require("../lib/helpers.js")
+if (isLoggedIn) {
+  $("#googleSignIn").show();
+  $("#logOutButton").hide();
+} else {
+  $("#googleSignIn").hide();
+  $("#logOutButton").show();
+}

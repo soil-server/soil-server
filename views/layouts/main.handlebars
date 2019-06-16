@@ -39,87 +39,13 @@
 							class="fab fa-google"></i></a>
 				</li>
 				<li>
-					<button type="button" id="signInButton" class="btn btn-success" data-toggle="modal"
-						data-target="#signInModal">
-						Sign in
-					</button>
+					<a class="nav-link"  id="logOutButton" href="/logout">Sign Out</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
 
-
-
-	<!-- sign in modal -->
-	<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form action="/login" method="post">
-						<div>
-							<label>Username:</label>
-							<input type="text" name="username" />
-						</div>
-						<div>
-							<label>Password:</label>
-							<input type="password" name="password" />
-						</div>
-						<div>
-							<input type="submit" value="Log In" />
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-success" data-dismiss="modal" data-toggle="modal"
-						data-target="#createAccountModal">Create new account</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{{!-- new user sign up --}}
-	<div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form action="/login" method="post">
-						<div>
-							<label>Username:</label>
-							<input id="newUserName" type="text" name="username" />
-						</div>
-						<div>
-							<label>Password:</label>
-							<input id="newPassword1" type="password" name="password" />
-						</div>
-						<div>
-							<label>Reenter password:</label>
-							<input id="newPassword2" type="password" name="password" />
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" id="createAccountButton" class="btn btn-primary">Create account</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	{{{ body }}}
 	<div>
 		<img id="logo" style="width: 280px" src="./images/project 2 logo name no line.png" alt="logo">
