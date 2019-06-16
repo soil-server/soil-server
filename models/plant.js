@@ -9,8 +9,12 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         }),
-        Plant.hasMany(models.Reading) 
+        Plant.hasMany(models.Reading)
+        
     };
+    // Plant.associate = function(models) {
+    //     Plant.hasMany(models.Reading)
+    // };
 
     return Plant;
 }
