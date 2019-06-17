@@ -1,4 +1,6 @@
 # Soil Server
+- https://soil-server-main.herokuapp.com/
+- https://github.com/Mday1313/johnny-five-tessel
 
 ## Group Name: _Short Circuit_
 ## Project Manager: _Melissa_

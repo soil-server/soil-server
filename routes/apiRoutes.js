@@ -1,28 +1,75 @@
 var db = require("../models");
 var passport = require("passport")
-var profile = require("../models/index")
 
 module.exports = function (app) {
-  // Get all examples
-  app.get("/api/plants", function (req, res) {
-    db.public_dataset.findAll({}).then(function (dbPlants) {
-      res.json(dbPlants);
+
+  app.post("/api/usercares", function (req, res) {
+    // console.log(req.body);
+    db.Usercare.create(req.body).then(function (dbUser) {
+        res.json(dbUser);
+      }).catch(function(err) {
+        // print the error details
+        console.log(err);
+    });
+  });
+
+  app.get("/api/usercares", function (req, res) {
+    db.Usercare.findAll({}).then(function (dbUsercares) {
+      res.json(dbUsercares);
+    });
+  });
+
+  app.delete("/api/usercares/:id", function (req, res) {
+    db.Usercare.destroy({ where: { id: req.params.id } }).then(function (dbCare) {
+      res.json(dbCare);
+    });
+  });
+
+  // app.get("/api/cares", function (req, res) {
+  //   db.Care.findAll({
+  //     include: [db.User]
+  //   }).then(function (dbCares) {
+  //     res.json(dbCares);
+  //   });
+  // });
+
+  // app.post("/api/cares", function (req, res) {
+
+  //   console.log(req.body);
+
+  //   db.Care.create(req.body).then(function (dbUser) {
+  //       res.json(dbUser);
+  //     }).catch(function(err) {
+  //       // print the error details
+  //       console.log(err);
+  //   });
+  // });
+
+  // app.delete("/api/cares/:id", function (req, res) {
+  //   db.Care.destroy({ where: { id: req.params.id } }).then(function (dbCare) {
+  //     res.json(dbCare);
+  //   });
+  // });
+
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
     });
   });
 
   // Create a new example
-  app.post("/api/plants", function (req, res) {
-    db.Plant.create(req.body).then(function (dbPlant) {
-      res.json(dbPlant);
+  app.post("/api/users", function (req, res) {
+    db.User.create(req.body).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/plants/:id", function (req, res) {
-    db.Plant.destroy({ where: { id: req.params.id } }).then(function (dbPlant) {
-      res.json(dbPlant);
-    });
-  });
+  // // Delete an example by id
+  // app.delete("/api/plants/:id", function (req, res) {
+  //   db.Plant.destroy({ where: { id: req.params.id } }).then(function (dbPlant) {
+  //     res.json(dbPlant);
+  //   });
+  // });
 
   app.get('/api/t2', function (req, res) {
 
@@ -36,11 +83,11 @@ module.exports = function (app) {
     passport.authenticate('google', { scope: ["profile"] }));
 
 
-  app.get( '/auth/google/callback', 
-    passport.authenticate( 'google', { 
-        successRedirect: '/',
-        failureRedirect: '/stats'
-}));
+  app.get('/auth/google/callback',
+    passport.authenticate('google', {
+      successRedirect: '/care',
+      failureRedirect: '/'
+    }));
 
 
   app.get('/logout', function (req, res) {

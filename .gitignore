@@ -63,3 +63,5 @@ package-lock.json
 
 # config
 config/
+
+.DS_Store
