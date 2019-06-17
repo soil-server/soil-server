@@ -62,7 +62,3 @@ $('.single-toggle.toggle').on('click', function () {
 });
 
 makeItRain();
-
-$(".btn").on("click", function(){
-  console.log(userId)
-})
