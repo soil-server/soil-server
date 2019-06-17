@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 3000;
 // Authentication
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var userId
 
 passport.use(
   new GoogleStrategy(
@@ -22,6 +23,8 @@ passport.use(
     },
     (accessToken, refreshToken, accessInfo, profile, cb) => {
       console.log(profile)
+      userId = profile.id;
+      console.log("ID = " + userId)
       db.User.findOrCreate({
         where: { google_id: profile.id },
         defaults: {
@@ -37,6 +40,7 @@ passport.use(
     }
   )
 );
+module.exports = userId
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
