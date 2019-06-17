@@ -64,7 +64,7 @@ $('.single-toggle.toggle').on('click', function () {
 makeItRain();
 
 
-// sign in button
+
 var isLoggedIn = require("../lib/helpers.js")
 if (isLoggedIn) {
   $("#googleSignIn").show();

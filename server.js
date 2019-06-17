@@ -38,7 +38,6 @@ passport.use(
   )
 );
 
-
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
