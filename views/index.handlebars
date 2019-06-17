@@ -1,6 +1,14 @@
 <div class="container">
-    <h1 style="text-align: center">Soil Server</h1>
-
+    <div class="row">
+        <div class="col-md-6">
+            <h1 style="text-align: center">Soil Server</h1> <br>
+            <p>We would like to introduce you all to the Soil Server. The Soil Server is a Javascript and Node Js run
+                microcontroller that will water your plants for you. We have used the Tessel 2 microcontroller, a soil
+                moisture sensor and a BME280 Atmosperic Sensor to monitor and care for your plants. By signing into this
+                site, you will have access to your Tessel 2 controls, the graphs and data for your personal plants and a
+                dashboard where you can find and save the care instructions for your favorite plants. </p>
+        </div>
+    </div>
 
     {{!-- hardware design --}}
     <div class="container">
@@ -15,7 +23,7 @@
         {{!-- rain end --}}
         <div class="row" id="hardwareDesign">
             <div class="col-md-6">
-                <h3>Diagram</h3>
+                <h3 style="text-align: center">Diagram</h3>
                 <img style="max-width: 500px" src="./images/soilMoistureDiagram.png" alt="diagram"> <br>
                 <h3>List of parts used:</h3>
                 <ul>
@@ -28,20 +36,32 @@
                     <li>Atmospheric Sensor</li>
                 </ul>
             </div>
+        </div>
+     
+        <div class="row">
+            <div class="col-md-6 final-photos">
+                <img style="max-width: 500px" src="./images/MDP_1787.jpg" alt="">
+                <p>Full set up of both sensors, relay, and Tessel 2.</p> <br>
+                <img style="max-width: 500px" src="./images/MDP_1819.jpg" alt="">
+                <p>Breadboard is the home to the BME280 Atmospheric Sensor.  The blue LED lights up when the soil is wet and the yellow LED lights when soil is dry.</p> <br>
+                <img style="max-width: 500px" src="./images/MDP_1823.jpg" alt="">
+                <p>Red and Black wires run from port B on the Tessel to the relay (green connector at top right of image).  A signal is sent from Tessel when the ON button is pressed on web page to toggle power to the pump.</p> <br>
+                <img style="max-width: 500px" src="./images/MDP_1789.jpg" alt="">
+                <p>When relay power is turned on the pump inside the mason jar is turned on and water is pumped through the hose and to the flowers.</p> <br>
+                <img style="max-width: 500px" src="./images/MDP_1802.jpg" alt=""> 
+                <p>Data is collected from both the soil moisture sensor and the atmospheric sensor and console logged for future use.</p> <br>
+            </div>
+        </div>
+        <div class="row" id="video">
             <div class="col-md-6">
-                <h3>Video Demonstration</h3>
-                <p>Video will go here once available</p>
+                <h3 style="text-align: center">Video Demonstration</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jPp2-W3SlXI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
         {{!-- rain start --}}
-        <div class="row">
-            <div class="col-md-12">
-
-                <body class="back-row-toggle splat-toggle">
-                    <div class="rain front-row"></div>
-                    <div class="rain back-row"></div>
-            </div>
-        </div>
+     
         {{!-- rain end --}}
     </div>
     <hr>
@@ -52,7 +72,7 @@
         <div class="col-md-8">
             <h2 style="text-align: center">About us</h2>
             <br>
-            <div class="row">
+            <div class="row" style="margin-bottom: 35px">
                 <div class="col-md-3">
                     <img src="./images/melissaDay.jpg" class="about-image" width="140px" height="140px" alt="Melissa">
                     <h2 class="about-name">Melissa Day</h2>
@@ -77,10 +97,11 @@
                     <img src="./images/John Sickels.jpg" class="about-image" width="140px" height="140px" alt="John">
                     <h2 class="about-name">John Sickels</h2>
                     <p style="text-align: center">Database & Routes</p>
-                    <p class="about-links"><a class="btn btn-success btn-sm" href="https://www.linkedin.com/in/johnwsickels/"
-                            target="_blank" role="button"><i class="fab fa-linkedin-in"></i></a><a
-                            class="btn btn-success btn-sm" href="https://github.com/johnsickels" target="_blank"
-                            role="button"><i class="fab fa-github-square"></i></a></p>
+                    <p class="about-links"><a class="btn btn-success btn-sm"
+                            href="https://www.linkedin.com/in/johnwsickels/" target="_blank" role="button"><i
+                                class="fab fa-linkedin-in"></i></a><a class="btn btn-success btn-sm"
+                            href="https://github.com/johnsickels" target="_blank" role="button"><i
+                                class="fab fa-github-square"></i></a></p>
                 </div><!-- /.col-md-3 -->
                 <div class="col-md-3">
                     <img src="./images/anthonyPhoto (1).jpg" class="about-image" width="140px" height="140px"
