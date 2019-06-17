@@ -63,13 +63,6 @@ $('.single-toggle.toggle').on('click', function () {
 
 makeItRain();
 
-
-
-var isLoggedIn = require("../lib/helpers.js")
-if (isLoggedIn) {
-  $("#googleSignIn").show();
-  $("#logOutButton").hide();
-} else {
-  $("#googleSignIn").hide();
-  $("#logOutButton").show();
-}
+$(".btn").on("click", function(){
+  console.log(userId)
+})
