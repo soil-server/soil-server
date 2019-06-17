@@ -81,9 +81,9 @@ var valueline1 = d3
 data.forEach(function(d) {
   d.date = parseTime(d.date);
   d.moisture = +d.moisture;
-  console.log(d.date);
+  // console.log(d.date);
   d.time = parseHour(d.time);
-  console.log(d.time);
+  // console.log(d.time);
 });
 
 // append the svg obgect to the body of the page
