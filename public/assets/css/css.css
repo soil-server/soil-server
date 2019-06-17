@@ -141,7 +141,7 @@ body.back-row-toggle .rain.back-row {
 }
 
 .drop {
-  position: absolute;
+  position: fixed;
   bottom: 100%;
   width: 5px;
   height: 120px;
