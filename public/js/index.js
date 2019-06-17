@@ -168,9 +168,6 @@ $(document).ready(function () {
     makeItRain();
   });
 
-<<<<<<< HEAD
-makeItRain();
-=======
   makeItRain();
 
 
@@ -184,4 +181,3 @@ makeItRain();
     $("#logOutButton").show();
   }
 });
->>>>>>> c51da2ff9c93dd053b18f2a4c4fa68929ccab9ec
