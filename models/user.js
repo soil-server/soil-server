@@ -8,5 +8,11 @@ module.exports = function (sequelize, DataTypes) {
         google_name: DataTypes.STRING,
         first_name: DataTypes.STRING
     });
+
+    User.associate = function(models) {
+        User.hasMany(models.Care, {
+          onDelete: "cascade"
+        });
+      };
     return User;
 }
