@@ -18,6 +18,6 @@ johnny five inventors kit with tessel microcontroller,
 express
 
 
-![](public/images/project2logonamenoline.png)
+
 ![](public/images/MDP_1802.jpg)
 
