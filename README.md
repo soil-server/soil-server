@@ -8,7 +8,7 @@
 ## Description: 
 * Bot run with Javascript using the Johnny-fve kit and Tessel2. This bot will water your house plants remotely. User will have have option to water on a timer, by alert when soil moisture reaches a certain level. The data will be collected for soil moisture level, humidity, temperature and air pressure. The browser will integrate both controls for the bot and as well as a styled graph with the returned data.
 
-\*note tessel functionality only ran locally, did not diploy to application\*
+\*note tessel functionality only ran locally, did not deploy to application\*
 
 Technologies used:
 handlebars,
