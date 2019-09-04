@@ -17,6 +17,8 @@ node js,
 johnny five inventors kit with tessel microcontroller,
 express
 
+Problem addressed: An application to assist a user care for thier plants by monitoring soil mosture level, humidity, and temperature. The user is able to water the plant when needed remotely using a water pump controlled by the application to ease the burden of when to water especially when not home.
+
 
 
 ![](public/images/MDP_1802.jpg)
